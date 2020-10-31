@@ -3,7 +3,7 @@
 
 |Nom de l'œuvre| Op., n° | Lien | Commentaire | Note|
 |--------|----|-------|---------|----|
-|        |     |   | <youtu.be/...>   |  ★|
+|        |     |   [Interprète](youtu.be/...)|   |  ★|
 
 
 
