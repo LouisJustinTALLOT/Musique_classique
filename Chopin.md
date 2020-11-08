@@ -8,7 +8,9 @@
 
 
 ## Concertos
+
 ### Piano
+
 |Nom de l'œuvre| Op., n° | Lien | Commentaire | Note|
 |--------|----|-------|---------|----|
 |Concerto pour piano n°1| Op. 11 n°1  |   [Olga Scheps, 2014](https://youtu.be/2bFo65szAP0) | Plus puissant que l'autre mais tout aussi beau. | ★★★|
@@ -18,8 +20,11 @@
 
 
 ## Instrument seul
+
 ### Piano
+
 #### Sonates
+
 |Nom de l'œuvre| Op., n° | Lien | Commentaire | Note|
 |--------|----|-------|---------|----|
 |Sonate n° 2 pour piano|Op. 35 n°2|  [Pogorelich](https://youtu.be/gHZHy2B6MCc?t=18)| Sonate surnaturelle, la Mort en personne. Thème du début surnaturel, 2ème mouvement très vif | ★★★|
@@ -36,8 +41,9 @@
  -->
 
 #### Valses
-### Orgue
+
+<!-- ### Orgue
 ### Violon
-### Violoncelle
+### Violoncelle -->
 
 
