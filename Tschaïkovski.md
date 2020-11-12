@@ -19,7 +19,7 @@
 ### Piano
 |Nom de l'œuvre| Op., n° | Lien | Commentaire | Note|
 |--------|----|-------|---------|----|
-|Concerto pour piano n°1|  n°1|[Anna Fedorova](https://youtu.be/hNfpMRSCFPE?t=3)   |  | ★★★|
+|Concerto pour piano n°1|  n°1|[Evgeny Kissin, Karajan](https://youtu.be/2ak5l3y0Bzc?t=34) ; [Anna Fedorova](https://youtu.be/hNfpMRSCFPE?t=3)   |  | ★★★|
 
 <!-- ### Violon
 ### Violoncelle -->
