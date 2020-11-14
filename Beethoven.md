@@ -1,4 +1,4 @@
-# Beethoven - œuvres 
+# Beethoven - œuvres  
 
 <!-- |Nom de l'œuvre| Op., n° | Lien | Commentaire | Note|
 |--------|----|-------|---------|----|
@@ -14,18 +14,18 @@
 
 ## Concertos
 
-### Piano
+### Concertos pour piano
 
 |Nom de l'œuvre| Op., n° | Lien | Commentaire | Note|
 |--------|----|-------|---------|----|
 |Concerto pour piano n°1|Op. 15 n°1 |   [Argerich](https://youtu.be/BF7pmimzjBs?t=60)|   |★★★|
 
-<!-- ### Violon -->
-<!-- ### Violoncelle -->
+<!-- ### Concertos pour violon -->
+<!-- ### Concertos pour violoncelle -->
+<!-- ### Concertos pour clarinette -->
 
 <!-- ## Instrument seul -->
 <!-- ### Piano -->
 <!-- ### Orgue -->
 <!-- ### Violon -->
 <!-- ### Violoncelle -->
-
