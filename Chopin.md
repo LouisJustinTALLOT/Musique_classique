@@ -25,7 +25,8 @@
 
 |Nom de l'œuvre| Op., n° | Lien | Commentaire | Note|
 |--------|----|-------|---------|----|
-|Sonate n° 2 pour piano|Op. 35 n°2|  [Pogorelich](https://youtu.be/gHZHy2B6MCc?t=18)| Sonate surnaturelle, la Mort en personne. Thème du début surnaturel, 2ème mouvement très vif | ★★★|
+|Sonate pour piano n° 2 en si bémol mineur|Op. 35 n°2|  [Pogorelich](https://youtu.be/gHZHy2B6MCc?t=18)| Sonate surnaturelle, la Mort en personne. Thème du début fascinant, 2ème mouvement très vif | ★★★|
+|Sonate pour piano n° 3 en si mineur|Op. 58 n°3|  [Trifonov](https://youtu.be/_LtmeGgtJNA)|  | ★★★|
 
 #### Scherzos
 
@@ -33,7 +34,7 @@
 |--------|----|-------|---------|----|
 |        |     |  <youtu.be/...>  |   |  ★|
  -->
-
+  
 #### Nocturnes
 
 <!-- |Nom de l'œuvre| Op., n° | Lien | Commentaire | Note|
