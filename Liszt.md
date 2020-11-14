@@ -1,4 +1,4 @@
-# Liszt - œuvres  
+# Franz Liszt - œuvres  
 
 <!-- |Nom de l'œuvre| Op., n° | Lien | Commentaire | Note|
 |--------|----|-------|---------|----|

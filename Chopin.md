@@ -1,4 +1,4 @@
-# Chopin - œuvres  
+# Frédéric Chopin - œuvres  
 
 <!-- |Nom de l'œuvre| Op., n° | Lien | Commentaire | Note|
 |--------|----|-------|---------|----|

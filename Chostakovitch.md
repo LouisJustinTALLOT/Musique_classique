@@ -1,4 +1,4 @@
-# Shostakovich - œuvres  
+# Dmitri Chostakovitch - œuvres  
 
 <!--|Nom de l'œuvre| Op., n° | Lien | Commentaire | Note|
 |--------|----|-------|---------|----|

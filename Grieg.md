@@ -1,4 +1,4 @@
-# Grieg - œuvres  
+# Edvard Grieg - œuvres  
 
 <!-- |Nom de l'œuvre| Op., n° | Lien | Commentaire | Note|
 |--------------|---------|------|-------------|-----|

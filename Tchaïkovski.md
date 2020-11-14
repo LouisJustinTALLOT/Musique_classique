@@ -1,4 +1,4 @@
-# Tschaïkovski - œuvres  
+# Piotr Ilitch Tchaïkovski - œuvres  
 
 <!--|Nom de l'œuvre| Op., n° | Lien | Commentaire | Note|
 |--------|----|-------|---------|----|
