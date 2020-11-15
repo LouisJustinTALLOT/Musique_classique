@@ -2,17 +2,9 @@
 
 import os
 
-print(",,")
-print(os.getcwd())
-print(",,")
-print(os.listdir())
 
 os.chdir("Compositeurs")
-print("là")
-print(",,")
-print(os.getcwd())
-print(",,")
-print(os.listdir())
+
 fichiers = set(os.listdir())
 
 # fichiers.remove(".git")
