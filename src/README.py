@@ -3,7 +3,8 @@
 import os
 import re
 
-regex_pattern =  "\A(\|[a-zA-Z]+\w)"
+regex_pattern =  "\A(\|[ a-zA-Z]{5}\w)"
+
 ma_regex = re.compile(regex_pattern)
 
 
@@ -23,16 +24,16 @@ def compter_nombre_de_morceaux(nom_de_fichier):
             nombre_de_morceaux += 1
 
 
-    for i in fiche_compositeur:
-        print(repr(i))
+    # for i in fiche_compositeur:
+    #     print(repr(i))
 
-    print(nombre_de_morceaux)
+    return nombre_de_morceaux
     
 
 os.chdir("Compositeurs")
 
 compter_nombre_de_morceaux("Vivaldi.md")
-input()
+
 
 fichiers = set(os.listdir())
 
@@ -48,28 +49,29 @@ for i in fichiers :
     
 liste_fichiers.sort()
 
+nb_total_morceaux = 0
+res = 0
 
+dict_comptes = {}
 
+for comp in liste_fichiers :
 
-
-
-
-
-
-
-
+    res = compter_nombre_de_morceaux(f"{comp}.md")
+    nb_total_morceaux += res
+    dict_comptes[comp] = res
 
 
 
 texte = f"""# Musique classique
 
-{len(liste_fichiers)} compositeurs sont répertoriés dans cette base.
+{len(liste_fichiers)} compositeurs sont répertoriés dans cette base, soit au total {nb_total_morceaux} pièces recensées.
 
-|Nom du compositeur |
-|-------------------|"""
+|Nom du compositeur |Nombre de pièces|
+|-------------------|----------------|"""
 
 for comp in liste_fichiers : 
-    texte += f"""\n|[{comp}](https://github.com/LouisJustinTALLOT/Musique_classique/blob/master/Compositeurs/{comp}.md)|"""
+    texte += f"""\n|[{comp}](https://github.com/LouisJustinTALLOT/Musique_classique/blob/master/Compositeurs/{comp}.md)|{dict_comptes[comp]}|"""
+
 texte += "\n"
 
 os.chdir(os.path.pardir)
