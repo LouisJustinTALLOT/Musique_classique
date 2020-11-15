@@ -1,9 +1,38 @@
 # -*- coding: utf-8 -*-
 
 import os
+import re
 
+regex_pattern =  "\A(\|[a-zA-Z]+\w)"
+ma_regex = re.compile(regex_pattern)
+
+
+def compter_nombre_de_morceaux(nom_de_fichier):
+    fiche_compositeur = []
+
+    with open(f"{nom_de_fichier}", 'r', encoding = 'utf8') as file : 
+        fiche_compositeur = list(file)
+
+    fiche_compositeur = set([ligne[:-1] for ligne in fiche_compositeur])
+    fiche_compositeur.remove("")
+
+    nombre_de_morceaux = 0    
+
+    for ligne in fiche_compositeur:
+        if ma_regex.match(ligne) and ligne[:4] != "|Nom":
+            nombre_de_morceaux += 1
+
+
+    for i in fiche_compositeur:
+        print(repr(i))
+
+    print(nombre_de_morceaux)
+    
 
 os.chdir("Compositeurs")
+
+compter_nombre_de_morceaux("Vivaldi.md")
+input()
 
 fichiers = set(os.listdir())
 
@@ -17,8 +46,19 @@ liste_fichiers = []
 for i in fichiers : 
     liste_fichiers.append(i[:-3])
     
-
 liste_fichiers.sort()
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 texte = f"""# Musique classique
