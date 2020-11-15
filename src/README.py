@@ -29,7 +29,7 @@ texte = f"""# Musique classique
 |-------------------|"""
 
 for comp in liste_fichiers : 
-    texte += f"""\n|[{comp}](https://github.com/LouisJustinTALLOT/compositeurs/blob/master/{comp}.md)|"""
+    texte += f"""\n|[{comp}](https://github.com/LouisJustinTALLOT/Musique_classique/blob/master/Compositeurs/{comp}.md)|"""
 texte += "\n"
 
 os.chdir(os.path.pardir)
