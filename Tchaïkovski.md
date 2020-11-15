@@ -8,8 +8,9 @@
 
 |Nom de l'œuvre| Op., n° | Lien | Commentaire | Note|
 |--------|----|-------|---------|----|
-|Symphonie n°6 *Pathétique*|  n°6|[Frankfurt Sinfonieorchester](https://youtu.be/SVnF3x44rvU?t=43)   |  | ★★★|
-|Symphonie n°5|  n°5|[Frankfurt Sinfonieorchester](https://youtu.be/a_B02BZp-5Y?t=27)   |  | ★★★|
+|Symphonie n°4 en fa mineur|Op. 36 n°4|[Frankfurt Sinfonieorchester](https://youtu.be/Y7G5ithbFys?t=20) |  | ★★★|
+|Symphonie n°5 en mi mineur|Op. 64 n°5|[Frankfurt Sinfonieorchester](https://youtu.be/a_B02BZp-5Y?t=27)   |  | ★★★|
+|Symphonie n°6 *"Pathétique"* en si mineur|Op. 74 n°6|[Frankfurt Sinfonieorchester](https://youtu.be/SVnF3x44rvU?t=43)   |  | ★★★|
 
 ## Concertos
 
