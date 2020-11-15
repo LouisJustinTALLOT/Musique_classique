@@ -1,6 +1,7 @@
 # Musique classique
 
-12 compositeurs sont répertoriés dans cette base, soit au total 28 pièces recensées.
+### 12 compositeurs sont répertoriés dans cette base, soit au total 28 pièces recensées.
+
 
 |Nom du compositeur |Nombre de pièces|
 |-------------------|----------------|
