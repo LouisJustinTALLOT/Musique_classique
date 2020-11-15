@@ -16,8 +16,14 @@
 <!-- ### Concertos pour violoncelle -->
 <!-- ### Concertos pour clarinette -->
 
-<!-- ## Instrument seul -->
-<!-- ### Piano -->
+## Instrument seul
+
+### Piano
+
+|Nom de l'œuvre| Op., n° | Lien | Commentaire | Note|
+|--------------|---------|------|-------------|-----|
+|Sonate pour piano nº 59 en mi bémol majeur |Hob. XVI : 49| [Alfred Brendel](https://youtu.be/mWF-48jIrSU?t=15)|   |★★|
+
 <!-- ### Orgue -->
 <!-- ### Violon -->
 <!-- ### Violoncelle -->
