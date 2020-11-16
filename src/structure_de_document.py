@@ -2,10 +2,8 @@ import os
 import re
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
-# print(dir_path)
 os.chdir(dir_path)
 os.chdir(os.path.pardir)
-# print(os.getcwd())
 
 def trouver_nom_section(chaine):
     ch = chaine.split(" ")
@@ -22,7 +20,7 @@ def identifier_ligne(ligne):
     4 si c'est un morceau        |Le morceau 
     -1 sinon
     """
-
+        
     if len(ligne) < 6:
         return -1
 
@@ -44,27 +42,37 @@ def identifier_ligne(ligne):
 #     print(identifier_ligne(li), li)
 
 class SousSousSection :
-    def __init__(self,nom_section, txt) : 
-        self.nom = nom_section
+    def __init__(self,nom_sous_sous_section, ligne_de_debut, ligne_de_fin, txt) : 
+        self.nom = nom_sous_sous_section
+        self.debut = ligne_de_debut
+        self.fin = ligne_de_fin
         self.texte = txt
 
 class SousSection :
-    def __init__(self,nom_sous_section,txt) : 
-        self.nom = nom_section
+    def __init__(self,nom_sous_section, ligne_de_debut, ligne_de_fin,txt) : 
+        self.nom = nom_sous_section
+        self.debut = ligne_de_debut
+        self.fin = ligne_de_fin 
         self.texte = txt
+        self.liste_sous_sous_sections = self.remplir_sous_sous_sections()
+
+    def remplir_sous_sous_sections(self):
+        return 
 
 class Section :
-    def __init__(self,nom_section) : #, ligne_de_debut, ligne_de_fin):
+    def __init__(self,nom_section, ligne_de_debut, ligne_de_fin,txt):
         self.nom = nom_section
-        # self.debut = ligne_de_debut
-        # self.fin = ligne_de_fin
-        self.texte = []
-        self.liste_sous_sections = []
+        self.debut = ligne_de_debut
+        self.fin = ligne_de_fin
+        self.texte = txt
+        self.liste_sous_sections = self.remplir_sous_sections()
 
-    def __repr__():
+    def remplir_sous_sections(self):
+        return
+
+
+    def __repr__(self):
         pass
-
-
 
 class Document :
 
@@ -74,17 +82,22 @@ class Document :
         
         self.texte = []
 
-        os.chrdir("c:/Users/ljtal/Documents/Musique_classique/Compositeurs")
+        os.chdir("Compositeurs")
 
         with open(self.nom_fichier) as file:
             self.texte = file.readlines()
         
+        self.longueur = len(self.texte)
+        
         self.sections = self.remplir_sections()
-    
+
+
+
     def remplir_sections(self):
         liste_sections = []
 
-
+        for i in range(len(self.longueur)):
+            "   "
 
 
         return liste_sections
