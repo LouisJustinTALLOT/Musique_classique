@@ -1,6 +1,6 @@
 # Module `structure_de_document` - démarche de construction
   
-## `Document.remplir_sections(self)`  
+## `Document.remplir_sections()`  
 
 Cette fonction a pour but d'initialiser l'objet `Document` en remplissant
 son attribut `liste_sections` avec différents objets `Section`.
