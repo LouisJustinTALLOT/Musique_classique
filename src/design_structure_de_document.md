@@ -96,3 +96,21 @@ Ainsi si on obtient :
 * rien de tout cela :
 
   * on ne fait rien
+
+## `Classe.compter_morceaux()`
+
+### `Document`
+
+-> compte en dehors du document + fait la somme du compte sur les sections
+
+### `Section`
+
+-> fait la somme sur les sous-sections + en-dehors
+
+### `SousSection`
+
+-> fait la somme sur les sous-sous-sections + en-dehors
+
+### `SousSousSection`
+
+-> renvoie le nombre sur la sous-section
