@@ -20,7 +20,7 @@ def identifier_ligne(ligne):
     4 si c'est un morceau        |Le morceau 
     -1 sinon
     """
-        
+
     if len(ligne) < 6:
         return -1
 
@@ -42,33 +42,49 @@ def identifier_ligne(ligne):
 #     print(identifier_ligne(li), li)
 
 class SousSousSection :
-    def __init__(self,nom_sous_sous_section, ligne_de_debut, ligne_de_fin, txt) : 
+    def __init__(self,document, nom_sous_sous_section, ligne_de_debut, ligne_de_fin=-1) : 
+        self.doc = document
         self.nom = nom_sous_sous_section
         self.debut = ligne_de_debut
         self.fin = ligne_de_fin
-        self.texte = txt
+        self.texte = []
+    
+    def update(self):
+        if self.fin >= self.debut:
+            self.text = self.doc.texte[self.debut:self.fin]
 
 class SousSection :
-    def __init__(self,nom_sous_section, ligne_de_debut, ligne_de_fin,txt) : 
+    def __init__(self,document, nom_sous_section, ligne_de_debut, ligne_de_fin=-1) : 
+        self.doc = document        
         self.nom = nom_sous_section
         self.debut = ligne_de_debut
         self.fin = ligne_de_fin 
-        self.texte = txt
-        self.liste_sous_sous_sections = self.remplir_sous_sous_sections()
+        self.texte = []
+        self.liste_sous_sous_sections = [] #self.remplir_sous_sous_sections()
 
-    def remplir_sous_sous_sections(self):
-        return 
+    def update(self):
+        if self.fin >= self.debut:
+            self.text = self.doc.texte[self.debut:self.fin]
+        if self.liste_sous_sous_sections:
+            self.liste_sous_sous_sections[-1].fin = self.fin
+            self.liste_sous_sous_sections[-1].update()
 
 class Section :
-    def __init__(self,nom_section, ligne_de_debut, ligne_de_fin,txt):
+    def __init__(self,document, nom_section, ligne_de_debut, ligne_de_fin=-1):
+        self.doc = document
         self.nom = nom_section
         self.debut = ligne_de_debut
         self.fin = ligne_de_fin
-        self.texte = txt
-        self.liste_sous_sections = self.remplir_sous_sections()
+        self.texte = ""
+        self.liste_sous_sections = [] # self.remplir_sous_sections()
 
-    def remplir_sous_sections(self):
-        return
+    def update(self):
+        if self.fin >= self.debut:
+            self.text = self.doc.texte[self.debut:self.fin]
+
+        if self.liste_sous_sections:
+            self.liste_sous_sections[-1].fin = self.fin
+            self.liste_sous_sections[-1].update()
 
 
     def __repr__(self):
@@ -89,15 +105,42 @@ class Document :
         
         self.longueur = len(self.texte)
         
-        self.sections = self.remplir_sections()
+        self.liste_sections = self.remplir_sections()
 
 
 
-    def remplir_sections(self):
+    def remplir_sections(self): # ATTENTION WIP
         liste_sections = []
 
         for i in range(len(self.longueur)):
-            "   "
+            ligne_etudiee = self.texte[i]
+            type_ligne = identifier_ligne(ligne_etudiee)
+
+            if type_ligne == 1 :  # c'est une nouvelle section
+                
+                if liste_sections: # ce n'est pas la première
+
+                    # il faut update la dernière section avec la ligne de fin
+                    liste_sections[-1].fin = i
+                    # on ajoute une nouvelle section sans mettre de texte pour l'instant 
+                    liste_sections.append(Section(self,
+                                                  trouver_nom_section(ligne_etudiee), 
+                                                  i+1 ))
+                    liste_sections[-1].update()
+
+                else : # c'est la première section
+                    liste_sections.append(Section(self,
+                                                  trouver_nom_section(ligne_etudiee), 
+                                                  i+1 ))
+
+        # on est à la fin du document, il faut alors update la toute dernière section
+
+        if liste_sections : # la liste n'est pas vide
+            liste_sections[-1].fin = self.longueur 
+            liste_sections[-1].update()
+
+
+
 
 
         return liste_sections
