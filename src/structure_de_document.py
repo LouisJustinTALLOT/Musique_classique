@@ -6,7 +6,13 @@ os.chdir(dir_path)
 os.chdir(os.path.pardir)
 # print(os.getcwd())
 
+def trouver_nom_section(chaine):
     ch = chaine.split(" ")
+    return " ".join(ch[1:])
+
+# print(trouver_nom_section("## Concerto pour piano"))
+
+
 class SousSousSection :
     def __init__(self,nom_section, txt) : 
         self.nom = nom_section
