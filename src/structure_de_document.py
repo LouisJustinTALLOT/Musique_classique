@@ -6,6 +6,7 @@ os.chdir(dir_path)
 os.chdir(os.path.pardir)
 # print(os.getcwd())
 
+    ch = chaine.split(" ")
 class SousSousSection :
     def __init__(self,nom_section, txt) : 
         self.nom = nom_section
