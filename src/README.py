@@ -64,7 +64,7 @@ for comp in liste_fichiers :
 
 texte = f"""# Musique classique
 
-### {len(liste_fichiers)} compositeurs sont répertoriés dans cette base, soit au total {nb_total_morceaux} pièces recensées.
+{len(liste_fichiers)} compositeurs sont répertoriés dans cette base, soit au total {nb_total_morceaux} pièces recensées.
 
 |Nom du compositeur |Nombre de pièces|
 |-------------------|----------------|"""
