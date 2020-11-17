@@ -1,13 +1,13 @@
 # Musique classique
 
-### 12 compositeurs sont répertoriés dans cette base, soit au total 29 pièces recensées.
+### 12 compositeurs sont répertoriés dans cette base, soit au total 30 pièces recensées.
 
 |Nom du compositeur |Nombre de pièces|
 |-------------------|----------------|
 |[Beethoven](https://github.com/LouisJustinTALLOT/Musique_classique/blob/master/Compositeurs/Beethoven.md)|4|
 |[Brahms](https://github.com/LouisJustinTALLOT/Musique_classique/blob/master/Compositeurs/Brahms.md)|2|
 |[Chopin](https://github.com/LouisJustinTALLOT/Musique_classique/blob/master/Compositeurs/Chopin.md)|5|
-|[Chostakovitch](https://github.com/LouisJustinTALLOT/Musique_classique/blob/master/Compositeurs/Chostakovitch.md)|2|
+|[Chostakovitch](https://github.com/LouisJustinTALLOT/Musique_classique/blob/master/Compositeurs/Chostakovitch.md)|3|
 |[Grieg](https://github.com/LouisJustinTALLOT/Musique_classique/blob/master/Compositeurs/Grieg.md)|1|
 |[Haydn](https://github.com/LouisJustinTALLOT/Musique_classique/blob/master/Compositeurs/Haydn.md)|2|
 |[Liszt](https://github.com/LouisJustinTALLOT/Musique_classique/blob/master/Compositeurs/Liszt.md)|2|
