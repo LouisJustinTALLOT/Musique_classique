@@ -24,8 +24,9 @@
 
 |Nom de l'œuvre| Op., n° | Lien | Commentaire | Note|
 |--------|----|-------|---------|----|
-|Douze études d'exécution transcendante|     |   [D. Trifonov](https://youtu.be/kD4T-rNklsY?t=9)|   |★★★|
-|Sonate en si mineur|     |   [C. Arrau](https://youtu.be/lKzjg94kPHk)|La seule sonate du compositeur|★★★|
+|Douze études d'exécution transcendante|S. 139|   [Daniil Trifonov](https://youtu.be/kD4T-rNklsY?t=9)|   |★★★|
+|Sonate en si mineur| S.178 |   [Claudio Arrau](https://youtu.be/lKzjg94kPHk)|La seule sonate du compositeur|★★★|
+|Rhapsodie Espagnole| S.254 |   [ Stephen Hough](https://youtu.be/KhHVTeuW5zI?t=3)|   |★★★|
 
 <!-- ### Orgue -->
 <!-- ### Violon -->
