@@ -41,42 +41,20 @@ def identifier_ligne(ligne):
 # for li in ["|Symphonie 3|   ", "|Nom de l'oeuvre", "## Symphonies", "### Piano", "#### Scherzos", "  "]:
 #     print(identifier_ligne(li), li)
 
-class SousSousSection :
-    def __init__(self,document, nom_sous_sous_section, ligne_de_debut, ligne_de_fin=-1) : 
-        self.doc = document
-        self.nom = nom_sous_sous_section
-        self.debut = ligne_de_debut
-        self.fin = ligne_de_fin
-        self.texte = []
-    
-    def update(self):
-        if self.fin >= self.debut:
-            self.text = self.doc.texte[self.debut:self.fin]
-
-class SousSection :
-    def __init__(self,document, nom_sous_section, ligne_de_debut, ligne_de_fin=-1) : 
-        self.doc = document        
-        self.nom = nom_sous_section
-        self.debut = ligne_de_debut
-        self.fin = ligne_de_fin 
-        self.texte = []
-        self.liste_sous_sous_sections = [] #self.remplir_sous_sous_sections()
-
-    def update(self):
-        if self.fin >= self.debut:
-            self.text = self.doc.texte[self.debut:self.fin]
-        if self.liste_sous_sous_sections:
-            self.liste_sous_sous_sections[-1].fin = self.fin
-            self.liste_sous_sous_sections[-1].update()
 
 class Section :
-    def __init__(self,document, nom_section, ligne_de_debut, ligne_de_fin=-1):
+    def __init__(self,document, nom_section, level,  ligne_de_debut, ligne_de_fin=-1):
         self.doc = document
         self.nom = nom_section
+
         self.debut = ligne_de_debut
         self.fin = ligne_de_fin
-        self.texte = ""
-        self.liste_sous_sections = [] # self.remplir_sous_sections()
+    
+        self.niveau = level
+        self.liste_sous_sections = [] 
+
+        self.texte = []
+        self.nombre_de_morceaux = 0
 
     def update(self):
         if self.fin >= self.debut:
@@ -86,9 +64,17 @@ class Section :
             self.liste_sous_sections[-1].fin = self.fin
             self.liste_sous_sections[-1].update()
 
+    def compter(self):
+        res = 0
+        for ss_sec in self.liste_sous_sections :
+            res += ss_sec.compter()
+
+        return self.nombre_de_morceaux + res
+
 
     def __repr__(self):
-        pass
+        
+        return f"{self.niveau} {self.nom} [{[sec for sec in self.liste_sous_sections]}]"
 
 class Document :
 
