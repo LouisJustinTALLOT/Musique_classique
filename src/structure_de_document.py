@@ -75,6 +75,15 @@ class Section :
 
         return self.nombre_de_morceaux + res
 
+    def il_y_a(self, level):
+        if self.niveau > level :
+            return False
+        if self.niveau == level :
+            return True
+        res = False
+        for sec in self.liste_sous_sections:
+            res = res or sec.il_y_a(level)
+        return res
 
     def __repr__(self):
         
