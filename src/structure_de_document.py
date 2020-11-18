@@ -25,16 +25,20 @@ def identifier_ligne(ligne):
         return -1
 
     if ma_regex.match(ligne) and ligne[:4] != "|Nom":
-        return 4
+        return -2
 
-    if ligne[:3] == "## ":
-        return 1
+    for i in range(1,7):
+        if ligne[:i+1] == "#"*i + " ":
+            return i
 
-    if ligne[:4] == "### ":
-        return 2
+    # if ligne[:3] == "## ":
+    #     return 2
 
-    if ligne[:5] == "#### ":   
-        return 3
+    # if ligne[:4] == "### ":
+    #     return 3
+
+    # if ligne[:5] == "#### ":   
+    #     return 4
 
     return -1
 
