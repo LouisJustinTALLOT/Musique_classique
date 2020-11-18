@@ -49,7 +49,7 @@ class Section :
 
         self.debut = ligne_de_debut
         self.fin = ligne_de_fin
-    
+
         self.niveau = level
         self.liste_sous_sections = [] 
 
@@ -96,13 +96,16 @@ class Document :
 
 
     def remplir_sections(self): # ATTENTION WIP
+        section_en_cours =  None
+
         liste_sections = []
 
         for i in range(len(self.longueur)):
+
             ligne_etudiee = self.texte[i]
             type_ligne = identifier_ligne(ligne_etudiee)
 
-            if type_ligne == 1 :  # c'est une nouvelle section
+            if type_ligne == 1 :  # c'est une nouvelle section 
                 
                 if liste_sections: # ce n'est pas la première
 
@@ -117,7 +120,19 @@ class Document :
                 else : # c'est la première section
                     liste_sections.append(Section(self,
                                                   trouver_nom_section(ligne_etudiee), 
+                                                  1, 
                                                   i+1 ))
+            elif type_ligne == 2 : # c'est une nouvelle sous-section
+
+                pass
+
+            elif type_ligne == 3 : # c'est une nouvelle sous-sous-section
+
+                pass
+
+            elif type_ligne == 4 : # c'est un morceau
+
+                pass
 
         # on est à la fin du document, il faut alors update la toute dernière section
 
