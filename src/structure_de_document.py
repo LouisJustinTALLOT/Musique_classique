@@ -80,6 +80,12 @@ class Section :
         
         return f"{self.niveau} {self.nom} [{[sec for sec in self.liste_sous_sections]}]"
 
+    def __repr__(self):
+        if self.liste_sous_sections :
+          return f"{self.niveau} {self.nom} {[sec for sec in self.liste_sous_sections]}"
+        else: 
+            return f"{self.niveau} {self.nom}"
+
 class Document :
 
     def __init__(self, nom_doc):
