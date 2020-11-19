@@ -85,9 +85,15 @@ class Section :
             res = res or sec.il_y_a(level)
         return res
 
-    def __repr__(self):
+    def trouver_du_bon_niveau(self, level):
+        if level == self.niveau :
+            return self
         
-        return f"{self.niveau} {self.nom} [{[sec for sec in self.liste_sous_sections]}]"
+        if level == self.niveau - 1 and self.liste_sous_sections:
+            return self.liste_sous_sections[-1].trouver_du_bon_niveau(level)
+
+        return False
+
 
     def __repr__(self):
         if self.liste_sous_sections :
