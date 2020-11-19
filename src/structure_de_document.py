@@ -105,7 +105,7 @@ class Document :
 
     def __init__(self, nom_doc):
         self.nom = nom_doc
-        self.nom_fichier = self.nom = '.md'
+        self.nom_fichier = self.nom + '.md'
         
         self.texte = []
 
@@ -125,7 +125,7 @@ class Document :
 
         liste_sections = []
 
-        for i in range(len(self.longueur)):
+        for i in range(self.longueur):
 
             ligne_etudiee = self.texte[i]
             type_ligne = identifier_ligne(ligne_etudiee)
