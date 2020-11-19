@@ -66,7 +66,7 @@ class Section :
 
     def update(self):
         if self.fin >= self.debut:
-            self.text = self.doc.texte[self.debut:self.fin]
+            self.texte = self.doc.texte[self.debut:self.fin]
 
         if self.liste_sous_sections:
             self.liste_sous_sections[-1].fin = self.fin
