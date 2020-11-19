@@ -111,7 +111,7 @@ class Document :
 
         os.chdir("Compositeurs")
 
-        with open(self.nom_fichier) as file:
+        with open(self.nom_fichier, 'r', encoding = 'utf8') as file:
             self.texte = file.readlines()
         
         self.longueur = len(self.texte)
