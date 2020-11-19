@@ -120,9 +120,20 @@ class Document :
 
         self.longueur = len(self.texte)
 
+        self.nombre_total_de_morceaux = 0
+
         self.liste_sections = self.remplir_sections()
 
+        self.nombre_total_de_morceaux = self.tout_compter()
 
+
+    def tout_compter(self):
+        res = self.nombre_total_de_morceaux
+
+        for sec in self.liste_sections :
+            res += sec.compter()
+
+        return res 
 
     def remplir_sections(self): # ATTENTION WIP
         partie_en_cours =  None
@@ -147,12 +158,12 @@ class Document :
                     liste_sections[-1].update()
                     liste_sections.append(new)
 
-
-
             elif type_ligne == -2 : # c'est un morceau
 
-                # print("morceau")
-                pass
+                if liste_sections :
+                   liste_sections[-1].nombre_de_morceaux += 1
+                else :
+                    self.nombre_total_de_morceaux += 1
 
             # if type_ligne in entiers_1_6 :  # c'est une nouvelle (sous-)(sous-)section
             #     new = Section(self, trouver_nom_section(ligne_etudiee), type_ligne, i+1 )
