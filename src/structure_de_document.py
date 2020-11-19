@@ -126,7 +126,7 @@ class Document :
 
         self.nombre_total_de_morceaux = self.tout_compter()
 
-
+    
     def tout_compter(self):
         res = self.nombre_total_de_morceaux
 
@@ -223,7 +223,10 @@ print(doc.liste_sections)
 print("")
 print([sec.debut for sec in doc.liste_sections])
 print([sec.fin for sec in doc.liste_sections])
-print(doc.liste_sections[0].texte)
-# print(doc.longueur)
-# print(doc.texte)
+print(doc.liste_sections[2].texte)
+print(doc.longueur)
+print("")
+print(doc.texte)
+print("")
+print(doc.nombre_total_de_morceaux)
 
