@@ -33,20 +33,7 @@ def identifier_ligne(ligne):
         if ligne[:i+1] == "#"*i + " ":
             return i
 
-    # if ligne[:3] == "## ":
-    #     return 2
-
-    # if ligne[:4] == "### ":
-    #     return 3
-
-    # if ligne[:5] == "#### ":
-    #     return 4
-
     return -1
-
-# for li in ["|Symphonie 3|   ", "|Nom de l'oeuvre", "## Symphonies", "### Piano", "#### Scherzos", "  "]:
-#     print(identifier_ligne(li), li)
-
 
 class Section :
     def __init__(self,document, nom_section, level,  ligne_de_debut, ligne_de_fin=-1, par = None):
@@ -78,26 +65,6 @@ class Section :
             res += ss_sec.compter()
 
         return self.nombre_de_morceaux + res
-
-    def il_y_a(self, level):
-        if self.niveau > level :
-            return False
-        if self.niveau == level :
-            return True
-        res = False
-        for sec in self.liste_sous_sections:
-            res = res or sec.il_y_a(level)
-        return res
-
-    def trouver_du_bon_niveau(self, level):
-        if level == self.niveau :
-            return self
-
-        if level == self.niveau - 1 and self.liste_sous_sections:
-            return self.liste_sous_sections[-1].trouver_du_bon_niveau(level)
-
-        return False
-
 
     def __repr__(self):
         if self.liste_sous_sections :
@@ -135,8 +102,7 @@ class Document :
 
         return res 
 
-    def remplir_sections(self): # ATTENTION WIP
-        partie_en_cours =  None
+    def remplir_sections(self):
 
         liste_sections = []
 
@@ -148,7 +114,6 @@ class Document :
             if type_ligne in entiers_1_6 :
 
                 new = Section(self, trouver_nom_section(ligne_etudiee), type_ligne, i+1 )
-                partie_en_cours = new
 
                 if not liste_sections: # c'est la toute première section
                     liste_sections.append(new)
@@ -165,48 +130,13 @@ class Document :
                 else :
                     self.nombre_total_de_morceaux += 1
 
-            # if type_ligne in entiers_1_6 :  # c'est une nouvelle (sous-)(sous-)section
-            #     new = Section(self, trouver_nom_section(ligne_etudiee), type_ligne, i+1 )
-            #     partie_en_cours = new
-
-            #     if liste_sections and type_ligne == 1: # ce n'est pas la première section
-            #         print("cas 1")
-            #         # il faut update la dernière section avec la ligne de fin
-            #         partie_en_cours.fin = i
-            #         # on ajoute une nouvelle section sans mettre de texte pour l'instant
-            #         liste_sections.append(Section(self, trouver_nom_section(ligne_etudiee), type_ligne, i+1 ))
-            #         partie_en_cours.update()
-
-            #     elif liste_sections and liste_sections[-1].il_y_a(type_ligne):
-            #         print("cas 2.")
-            #         parent = liste_sections[-1].trouver_du_bon_niveau(type_ligne)
-
-            #         if parent:
-            #             parent.liste_sous_sections.append(new)
-            #         else:
-            #             liste_sections[-1].liste_sous_sections.append(new)
-
-            #     else : # c'est la première section
-
-            #         liste_sections.append(new)
-            #         # partie_en_cours = new
-
-
-
         # on est à la fin du document, il faut alors update la toute dernière section
 
         if liste_sections : # la liste n'est pas vide
             liste_sections[-1].fin = self.longueur
             liste_sections[-1].update()
 
-
-
-
-
         return liste_sections
-
-
-
 
 # partie de tests (à enlever dans le module bien sûr)
 print("")
@@ -215,7 +145,6 @@ sec_principale = Section(doc,"Première", 0, 0)
 sec_principale.liste_sous_sections.append(Section(doc, "Symphonies", 1, 0 ))
 sec_principale.liste_sous_sections.append(Section(doc, "Concertos", 1, 0 ))
 sec_principale.liste_sous_sections[-1].liste_sous_sections.append(Section(doc, "Concertos pour piano", 2, 0 ))
-
 
 # print(sec_principale)
 print("")
