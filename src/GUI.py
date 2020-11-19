@@ -1,5 +1,5 @@
 import os 
 import re
-from structure_de_document import *
+import structure_de_document as struct
 from tkinter import *
 
