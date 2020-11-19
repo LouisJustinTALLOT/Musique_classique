@@ -49,7 +49,7 @@ def identifier_ligne(ligne):
 
 
 class Section :
-    def __init__(self,document, nom_section, level,  ligne_de_debut, ligne_de_fin=-1):
+    def __init__(self,document, nom_section, level,  ligne_de_debut, ligne_de_fin=-1, par = None):
         self.doc = document
         self.nom = nom_section
 
@@ -61,6 +61,8 @@ class Section :
 
         self.texte = []
         self.nombre_de_morceaux = 0
+
+        self.parent = par
 
     def update(self):
         if self.fin >= self.debut:
