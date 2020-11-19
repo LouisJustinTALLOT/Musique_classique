@@ -19,7 +19,7 @@ def identifier_ligne(ligne):
     1 si une section             ## nom section
     2 si une sous section        ### nom sous-section
     3 si une sous sous section   #### nom sous-sous-section
-    4 si c'est un morceau        |Le morceau 
+    4 si c'est un morceau        |Le morceau
     -1 sinon
     """
 
@@ -39,7 +39,7 @@ def identifier_ligne(ligne):
     # if ligne[:4] == "### ":
     #     return 3
 
-    # if ligne[:5] == "#### ":   
+    # if ligne[:5] == "#### ":
     #     return 4
 
     return -1
@@ -57,7 +57,7 @@ class Section :
         self.fin = ligne_de_fin
 
         self.niveau = level
-        self.liste_sous_sections = [] 
+        self.liste_sous_sections = []
 
         self.texte = []
         self.nombre_de_morceaux = 0
@@ -92,7 +92,7 @@ class Section :
     def trouver_du_bon_niveau(self, level):
         if level == self.niveau :
             return self
-        
+
         if level == self.niveau - 1 and self.liste_sous_sections:
             return self.liste_sous_sections[-1].trouver_du_bon_niveau(level)
 
@@ -102,7 +102,7 @@ class Section :
     def __repr__(self):
         if self.liste_sous_sections :
           return f"{self.niveau} {self.nom} {[sec for sec in self.liste_sous_sections]}"
-        else: 
+        else:
             return f"{self.niveau} {self.nom}"
 
 class Document :
@@ -110,16 +110,16 @@ class Document :
     def __init__(self, nom_doc):
         self.nom = nom_doc
         self.nom_fichier = self.nom + '.md'
-        
+
         self.texte = []
 
         os.chdir("Compositeurs")
 
         with open(self.nom_fichier, 'r', encoding = 'utf8') as file:
             self.texte = file.readlines()
-        
+
         self.longueur = len(self.texte)
-        
+
         self.liste_sections = self.remplir_sections()
 
 
@@ -135,7 +135,7 @@ class Document :
             type_ligne = identifier_ligne(ligne_etudiee)
 
             if type_ligne in entiers_1_6 :
-                
+
                 new = Section(self, trouver_nom_section(ligne_etudiee), type_ligne, i+1 )
                 partie_en_cours = new
 
@@ -186,7 +186,7 @@ class Document :
         # on est à la fin du document, il faut alors update la toute dernière section
 
         if liste_sections : # la liste n'est pas vide
-            liste_sections[-1].fin = self.longueur 
+            liste_sections[-1].fin = self.longueur
             liste_sections[-1].update()
 
 
@@ -194,7 +194,7 @@ class Document :
 
 
         return liste_sections
-        
+
 
 
 
