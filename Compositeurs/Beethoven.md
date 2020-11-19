@@ -19,6 +19,7 @@
 |Nom de l'œuvre| Op., n° | Lien | Commentaire | Note|
 |--------|----|-------|---------|----|
 |Concerto pour piano n°1|Op. 15 n°1 |   [Argerich](https://youtu.be/BF7pmimzjBs?t=60)|   |★★★|
+|Concerto pour piano n°3|Op. 37 n°3 |   [Alice Sara Ott, Radio France](https://youtu.be/PM0HqmptYlY?t=134) |  |★★★|
 
 <!-- ### Concertos pour violon -->
 <!-- ### Concertos pour violoncelle -->
