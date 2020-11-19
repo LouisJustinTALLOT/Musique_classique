@@ -140,14 +140,13 @@ class Document :
                 partie_en_cours = new
 
                 if not liste_sections: # c'est la toute première section
-                    print("n'arrive qu'une fois")
                     liste_sections.append(new)
 
-                elif type_ligne == liste_sections[0].niveau: # c'est aussi une s° principale
-                    print("à chaque section principale")
+                else : # on doit update la section précédente
+                    liste_sections[-1].fin = i
+                    liste_sections[-1].update()
                     liste_sections.append(new)
 
-                elif # IL FAUT FAIRE UNE FONCTION QUI REMONTE AVEC self.parent
 
 
             elif type_ligne == -2 : # c'est un morceau
