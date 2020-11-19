@@ -198,3 +198,22 @@ class Document :
 
 
 
+# partie de tests (à enlever dans le module bien sûr)
+print("")
+doc = Document("Chopin")
+sec_principale = Section(doc,"Première", 0, 0)
+sec_principale.liste_sous_sections.append(Section(doc, "Symphonies", 1, 0 ))
+sec_principale.liste_sous_sections.append(Section(doc, "Concertos", 1, 0 ))
+sec_principale.liste_sous_sections[-1].liste_sous_sections.append(Section(doc, "Concertos pour piano", 2, 0 ))
+
+
+# print(sec_principale)
+print("")
+print(doc.liste_sections)
+print("")
+print([sec.debut for sec in doc.liste_sections])
+print([sec.fin for sec in doc.liste_sections])
+print(doc.liste_sections[0].texte)
+# print(doc.longueur)
+# print(doc.texte)
+
