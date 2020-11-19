@@ -35,3 +35,16 @@ def afficher_doc(doc):
             Label(fen, text = doc.liste_sections[i-1].compter()).grid(row = i, column = 5)
     Label(fen, text = "").grid(row = i+1, column = 3)
     Button(fen, text="Quit", command=fen.destroy).grid(row = i+2, column = 3)
+
+def callback_list(*args):
+    global var_listbox1
+    afficher_doc(dict_docs[var_listbox1.get()])
+
+def liste_compo_deroulante(compo):
+    global var_listbox1
+    var_listbox1 = StringVar(fen)
+    var_listbox1.set("Compositeur")
+    opt = OptionMenu(fen, var_listbox1, *compo)
+    var_listbox1.trace("w", callback_list)
+    opt.grid(row = 3, column = 0)
+    
