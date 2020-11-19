@@ -80,6 +80,9 @@ class Document :
 
         self.texte = []
 
+        dir_path = os.path.dirname(os.path.realpath(__file__))
+        os.chdir(dir_path)
+        os.chdir(os.path.pardir)
         os.chdir("Compositeurs")
 
         with open(self.nom_fichier, 'r', encoding = 'utf8') as file:
