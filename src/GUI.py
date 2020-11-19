@@ -26,7 +26,7 @@ def afficher_doc(doc):
     # print(doc.nom)
     # le nom en haut avec le nb de morceaux
     # Label(fen, text = doc.nom).grid(row = 0, column = 3)
-    Label(fen, text = doc.tout_compter()).grid(row = 1, column = 5)
+    Label(fen, text = doc.nombre_total_de_morceaux).grid(row = 1, column = 5)
     # les parties
     for i in range(1,len(doc.liste_sections)+1):
         # un label avec le nom de la section et le nombre d'oeuvres
