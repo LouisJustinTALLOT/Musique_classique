@@ -5,6 +5,8 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 os.chdir(dir_path)
 os.chdir(os.path.pardir)
 
+entiers_1_6 = [1, 2, 3, 4, 5, 6]
+
 def trouver_nom_section(chaine):
     ch = chaine.split(" ")
     return " ".join(ch[1:])
@@ -121,7 +123,7 @@ class Document :
 
 
     def remplir_sections(self): # ATTENTION WIP
-        section_en_cours =  None
+        partie_en_cours =  None
 
         liste_sections = []
 
@@ -130,34 +132,54 @@ class Document :
             ligne_etudiee = self.texte[i]
             type_ligne = identifier_ligne(ligne_etudiee)
 
-            if type_ligne == 1 :  # c'est une nouvelle section 
+            if type_ligne in entiers_1_6 :
                 
-                if liste_sections: # ce n'est pas la première
+                new = Section(self, trouver_nom_section(ligne_etudiee), type_ligne, i+1 )
+                partie_en_cours = new
 
-                    # il faut update la dernière section avec la ligne de fin
-                    liste_sections[-1].fin = i
-                    # on ajoute une nouvelle section sans mettre de texte pour l'instant 
-                    liste_sections.append(Section(self,
-                                                  trouver_nom_section(ligne_etudiee), 
-                                                  i+1 ))
-                    liste_sections[-1].update()
+                if not liste_sections: # c'est la toute première section
+                    print("n'arrive qu'une fois")
+                    liste_sections.append(new)
 
-                else : # c'est la première section
-                    liste_sections.append(Section(self,
-                                                  trouver_nom_section(ligne_etudiee), 
-                                                  1, 
-                                                  i+1 ))
-            elif type_ligne == 2 : # c'est une nouvelle sous-section
+                elif type_ligne == liste_sections[0].niveau: # c'est aussi une s° principale
+                    print("à chaque section principale")
+                    liste_sections.append(new)
 
+                elif # IL FAUT FAIRE UNE FONCTION QUI REMONTE AVEC self.parent
+
+
+            elif type_ligne == -2 : # c'est un morceau
+
+                # print("morceau")
                 pass
 
-            elif type_ligne == 3 : # c'est une nouvelle sous-sous-section
+            # if type_ligne in entiers_1_6 :  # c'est une nouvelle (sous-)(sous-)section
+            #     new = Section(self, trouver_nom_section(ligne_etudiee), type_ligne, i+1 )
+            #     partie_en_cours = new
 
-                pass
+            #     if liste_sections and type_ligne == 1: # ce n'est pas la première section
+            #         print("cas 1")
+            #         # il faut update la dernière section avec la ligne de fin
+            #         partie_en_cours.fin = i
+            #         # on ajoute une nouvelle section sans mettre de texte pour l'instant
+            #         liste_sections.append(Section(self, trouver_nom_section(ligne_etudiee), type_ligne, i+1 ))
+            #         partie_en_cours.update()
 
-            elif type_ligne == 4 : # c'est un morceau
+            #     elif liste_sections and liste_sections[-1].il_y_a(type_ligne):
+            #         print("cas 2.")
+            #         parent = liste_sections[-1].trouver_du_bon_niveau(type_ligne)
 
-                pass
+            #         if parent:
+            #             parent.liste_sous_sections.append(new)
+            #         else:
+            #             liste_sections[-1].liste_sous_sections.append(new)
+
+            #     else : # c'est la première section
+
+            #         liste_sections.append(new)
+            #         # partie_en_cours = new
+
+
 
         # on est à la fin du document, il faut alors update la toute dernière section
 
