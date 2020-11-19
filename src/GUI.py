@@ -48,3 +48,15 @@ def liste_compo_deroulante(compo):
     var_listbox1.trace("w", callback_list)
     opt.grid(row = 3, column = 0)
     
+# la partie principale
+
+fen = Tk()
+# fen.geometry('500x200')
+# lb = Listbox(fen)
+# lb.insert(1, compositeurs)
+# lb.grid()
+
+liste_compo_deroulante(compositeurs)
+Button(fen, text="Quit", command=fen.destroy).grid(row = 10, column = 3)
+# print(fen.winfo_children())
+fen.mainloop()
