@@ -18,6 +18,15 @@ dict_docs = {}
 for c in compositeurs:
     dict_docs[c] = struct.Document(c)
 
+def nouveau_compositeur(en_prenom, en_nom):
+    # on va lire template.md, le copier en changeant le premier nom
+    # il faut aussi prévoir une zone de texte
+    prenom = en_prenom.get()
+    nom = en_nom.get()
+    en_nom.delete(0, 'end') 
+    en_prenom.delete(0, 'end')
+    
+    struct.new_file(prenom, nom)
 def afficher_doc(doc):
     for widget in fen.winfo_children():
         widget.destroy()
@@ -34,7 +43,20 @@ def afficher_doc(doc):
         if doc.liste_sections[i-1].compter():
             tk.Label(fen, text = doc.liste_sections[i-1].compter()).grid(row = i, column = 5)
     tk.Label(fen, text = "").grid(row = i+1, column = 3)
-    tk.Button(fen, text="Quit", command=fen.destroy).grid(row = i+2, column = 3)
+
+    tk.Label(fen, text = "Prénom : ").grid(row = i+2, column = 1)
+    tk.Label(fen, text = " Nom : ").grid(row = i+2, column = 3)
+
+    entree_prenom = tk.Entry(fen) ; entree_prenom.grid(row = i+2, column = 2)
+    entree_nom = tk.Entry(fen) ; entree_nom.grid(row = i+2, column = 4)
+    tk.Button(fen, 
+              text = "Nouveau compositeur", 
+              command = lambda : nouveau_compositeur(entree_prenom, 
+                                                    entree_nom)).grid(row = i+2, 
+                                                                    column = 5)
+
+
+    tk.Button(fen, text="Quit", command=fen.destroy).grid(row = i+4, column = 3)
 
 def callback_list(*args):
     global var_listbox1
@@ -57,6 +79,17 @@ fen = tk.Tk()
 # lb.grid()
 
 liste_compo_deroulante(compositeurs)
+tk.Label(fen, text = "Prénom : ").grid(row = 5, column = 1)
+tk.Label(fen, text = " Nom : ").grid(row = 5, column = 3)
+
+entree_prenom = tk.Entry(fen) ; entree_prenom.grid(row = 5, column = 2)
+entree_nom = tk.Entry(fen) ; entree_nom.grid(row = 5, column = 4)
+tk.Button(fen, 
+          text = "Nouveau compositeur", 
+          command = lambda : nouveau_compositeur(entree_prenom, 
+                                                 entree_nom)).grid(row = 5, 
+                                                                   column = 5)
+
 tk.Button(fen, text="Quit", command=fen.destroy).grid(row = 10, column = 3)
 # print(fen.winfo_children())
 fen.mainloop()
