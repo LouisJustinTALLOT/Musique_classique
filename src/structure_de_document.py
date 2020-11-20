@@ -13,6 +13,20 @@ def sum_liste_chaine(li,sep=""):
         res += c + sep
     res += li[-1]
     return res
+
+def trouver_et_decommenter(doc,chaine):
+    for i in range(doc.longueur):
+        if chaine in doc.texte[i] and doc.texte[i][:4] == "<!--":
+            ch = chaine.split()
+            if "-->" in ch[-1]:
+                rempl = sum_liste_chaine(ch[1:-1], " ")
+            else:
+                rempl = sum_liste_chaine(ch[1:]," ")
+
+            doc.remplacer(i,rempl)
+            return True
+    return False
+
 def trouver_nom_section(chaine):
     ch = chaine.split(" ")
     return " ".join(ch[1:])
