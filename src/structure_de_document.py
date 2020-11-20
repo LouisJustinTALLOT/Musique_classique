@@ -117,6 +117,20 @@ class Document :
         self.nombre_total_de_morceaux = self.tout_compter()
 
     
+    def remplacer(self, numero_ligne, ligne):
+        texte = ""
+        for no in range(self.longueur):
+            if no == numero_ligne:
+                texte += ligne + "\n"
+            else:
+                texte += self.texte[no]
+
+        os.chdir(dir_path)
+        os.chdir(os.path.pardir)
+        os.chdir("Compositeurs")
+        with open(self.nom_fichier, 'w', encoding = 'utf8') as file:
+            file.write(texte)
+
     def tout_compter(self):
         res = self.nombre_total_de_morceaux
 
