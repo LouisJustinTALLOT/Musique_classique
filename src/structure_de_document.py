@@ -185,3 +185,39 @@ def enleve_espaces_debut_fin(chaine):
 
     return chaine
 
+def new_file(prenom_compositeur, nom_compositeur):
+    prenom_compositeur = enleve_espaces_debut_fin(prenom_compositeur)
+    nom_compositeur = enleve_espaces_debut_fin(nom_compositeur)
+
+    texte = ""
+    texte += f"""# {prenom_compositeur} {nom_compositeur} - œuvres  
+
+<!-- ## Symphonies -->
+
+<!-- ## Concertos -->
+<!-- ### Concertos pour piano -->
+<!-- ### Concertos pour violon -->
+<!-- ### Concertos pour violoncelle -->
+<!-- ### Concertos pour clarinette -->
+
+<!-- ## Instrument seul -->
+<!-- ### Piano -->
+<!-- ### Orgue -->
+<!-- ### Violon -->
+<!-- ### Violoncelle -->
+
+<!-- ## Messes -->
+<!-- ## Requiems -->
+"""
+
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    os.chdir(dir_path)
+    os.chdir(os.path.pardir)
+    os.chdir("Compositeurs")
+
+    nom_du_fichier = nom_compositeur + ".md"
+
+    if nom_du_fichier not in os.listdir():
+        with open(nom_du_fichier,'w', encoding='utf8') as fi:
+            fi.write(texte)
+    
