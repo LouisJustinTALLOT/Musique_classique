@@ -7,6 +7,12 @@ os.chdir(os.path.pardir)
 
 entiers_1_6 = [1, 2, 3, 4, 5, 6]
 
+def sum_liste_chaine(li,sep=""):
+    res = ""
+    for c in li[:-1]:
+        res += c + sep
+    res += li[-1]
+    return res
 def trouver_nom_section(chaine):
     ch = chaine.split(" ")
     return " ".join(ch[1:])
