@@ -174,3 +174,14 @@ class Document :
             liste_sections[-1].update()
 
         return liste_sections
+
+def enleve_espaces_debut_fin(chaine):
+
+    while chaine[0] == " ":
+        chaine = chaine[1:]
+
+    while chaine[-1] == " ":
+        chaine = chaine[:-1]
+
+    return chaine
+
