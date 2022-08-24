@@ -16,6 +16,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -25,12 +26,13 @@ SECRET_KEY = 'django-insecure-77r=92vh%6+7-#m_t)24-(#5!@o2u6&7)f803^$dm^1+g#drp-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost"]
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'music_store.apps.MusicStoreConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -117,7 +119,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+STATIC_ROOT = BASE_DIR / "static"
+
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    # BASE_DIR / "static",
+    BASE_DIR.parent / "frontend" / "dist",
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
