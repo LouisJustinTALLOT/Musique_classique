@@ -10,6 +10,7 @@ _i.e._ musical videos that I like.
 - Backend:
   - [Python](https://www.python.org)
   - [Django](https://www.djangoproject.com)
+  - [WhiteNoise](https://whitenoise.evans.io/en/stable/)
   - [SQLite](https://www.sqlite.org)
 - Frontend:
   - [Svelte](https://svelte.dev)
