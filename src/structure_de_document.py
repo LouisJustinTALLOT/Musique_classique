@@ -14,24 +14,11 @@ def sum_liste_chaine(li,sep=""):
     res += li[-1]
     return res
 
-def trouver_et_decommenter(doc,chaine):
-    for i in range(doc.longueur):
-        if chaine in doc.texte[i] and doc.texte[i][:4] == "<!--":
-            ch = chaine.split()
-            if "-->" in ch[-1]:
-                rempl = sum_liste_chaine(ch[1:-1], " ")
-            else:
-                rempl = sum_liste_chaine(ch[1:]," ")
-
-            doc.remplacer(i,rempl)
-            return True
-    return False
-
 def trouver_nom_section(chaine):
     ch = chaine.split(" ")
     return " ".join(ch[1:])
 
-regex_pattern =  "\A(\|[ a-zA-Z]{5}\w)"
+regex_pattern =  r"\A(\|[ a-zA-Z]{5}\w)"
 ma_regex = re.compile(regex_pattern)
 
 def identifier_ligne(ligne):
@@ -100,7 +87,6 @@ class Document :
 
         self.texte = []
 
-        dir_path = os.path.dirname(os.path.realpath(__file__))
         os.chdir(dir_path)
         os.chdir(os.path.pardir)
         os.chdir("Compositeurs")
@@ -175,6 +161,19 @@ class Document :
 
         return liste_sections
 
+    def trouver_et_decommenter(self, chaine):
+        for i in range(self.longueur):
+            if chaine in self.texte[i] and self.texte[i][:4] == "<!--":
+                ch = chaine.split()
+                if "-->" in ch[-1]:
+                    rempl = sum_liste_chaine(ch[1:-1], " ")
+                else:
+                    rempl = sum_liste_chaine(ch[1:]," ")
+
+                self.remplacer(i,rempl)
+                return True
+        return False
+
 def enleve_espaces_debut_fin(chaine):
 
     while chaine[0] == " ":
@@ -190,25 +189,7 @@ def new_file(prenom_compositeur, nom_compositeur):
     nom_compositeur = enleve_espaces_debut_fin(nom_compositeur)
 
     texte = ""
-    texte += f"""# {prenom_compositeur} {nom_compositeur} - œuvres  
-
-<!-- ## Symphonies -->
-
-<!-- ## Concertos -->
-<!-- ### Concertos pour piano -->
-<!-- ### Concertos pour violon -->
-<!-- ### Concertos pour violoncelle -->
-<!-- ### Concertos pour clarinette -->
-
-<!-- ## Instrument seul -->
-<!-- ### Piano -->
-<!-- ### Orgue -->
-<!-- ### Violon -->
-<!-- ### Violoncelle -->
-
-<!-- ## Messes -->
-<!-- ## Requiems -->
-"""
+    texte += f"""# {prenom_compositeur} {nom_compositeur} - œuvres\n"""
 
     dir_path = os.path.dirname(os.path.realpath(__file__))
     os.chdir(dir_path)
@@ -221,3 +202,15 @@ def new_file(prenom_compositeur, nom_compositeur):
         with open(nom_du_fichier,'w', encoding='utf8') as fi:
             fi.write(texte)
     
+def insert(section):
+    """|Nom de l'œuvre| Op., n° | Lien | Commentaire | Note|
+    |--------------|---------|------|-------------|-----|
+    |              |         | [Interprète](youtube)|   |  ★|"""
+    pass
+
+
+# print(new_file("Jean","    Pierre   "))
+new_file("Jean","    Pierre   ")
+d = Document("Pierre")
+d.remplacer(5,"dhiaudaih")
+d.trouver_et_decommenter("Instrument")

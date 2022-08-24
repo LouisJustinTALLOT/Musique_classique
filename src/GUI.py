@@ -18,6 +18,10 @@ dict_docs = {}
 for c in compositeurs:
     dict_docs[c] = struct.Document(c)
 
+def update_readme():
+
+    pass
+
 def nouveau_compositeur(en_prenom, en_nom):
     # on va lire template.md, le copier en changeant le premier nom
     # il faut aussi prévoir une zone de texte
@@ -25,17 +29,28 @@ def nouveau_compositeur(en_prenom, en_nom):
     nom = en_nom.get()
     en_nom.delete(0, 'end') 
     en_prenom.delete(0, 'end')
-    
+
     struct.new_file(prenom, nom)
+
+def nouveau_morceau(compositeur):
+
+    pass
+
+def nouvelle_section(compositeur, nom_section, sous_section):
+
+    pass
+
 def afficher_doc(doc):
+    # on nettoye la fenêtre
     for widget in fen.winfo_children():
         widget.destroy()
     liste_compo_deroulante(compositeurs)
     tk.Label(fen, text = "").grid(row = 1, column = 4)
-    # print(doc.nom)
+
     # le nom en haut avec le nb de morceaux
     # Label(fen, text = doc.nom).grid(row = 0, column = 3)
     tk.Label(fen, text = doc.nombre_total_de_morceaux).grid(row = 1, column = 5)
+    
     # les parties
     for i in range(1,len(doc.liste_sections)+1):
         # un label avec le nom de la section et le nombre d'oeuvres
@@ -44,6 +59,7 @@ def afficher_doc(doc):
             tk.Label(fen, text = doc.liste_sections[i-1].compter()).grid(row = i, column = 5)
     tk.Label(fen, text = "").grid(row = i+1, column = 3)
 
+    # Pour rajouter un nouveau compositeur
     tk.Label(fen, text = "Prénom : ").grid(row = i+2, column = 1)
     tk.Label(fen, text = " Nom : ").grid(row = i+2, column = 3)
 
@@ -51,11 +67,22 @@ def afficher_doc(doc):
     entree_nom = tk.Entry(fen) ; entree_nom.grid(row = i+2, column = 4)
     tk.Button(fen, 
               text = "Nouveau compositeur", 
-              command = lambda : nouveau_compositeur(entree_prenom, 
-                                                    entree_nom)).grid(row = i+2, 
-                                                                    column = 5)
+              command = lambda : nouveau_compositeur(entree_prenom, entree_nom)).grid(row = i+2, column = 5)
 
+    # Pour rajouter un morceau
+    tk.Button(fen, text = "Nouveau morceau", command = lambda : nouveau_morceau(doc.nom)).grid(row = 5, column = 0)
 
+    # Pour rajouter une section
+    tk.Label(fen, text = 'Nom de la nouvelle section : ').grid(row = i+3, column = 1)
+    new_sec = tk.Entry(fen) ; new_sec.grid(row = i+3, column = 2)
+    tk.Label(fen, text = ' sous la section : ').grid(row = i+3, column = 3)
+    lieu_sec = tk.Entry(fen) ; lieu_sec.grid(row = i+3, column = 4)
+
+    tk.Button(fen, 
+              text = "Nouvelle section", 
+              command=lambda : nouvelle_section(doc.nom,new_sec.get(),lieu_sec.get() )).grid(row = i+3, column = 5)
+
+    # Fermeture de la fenêtre
     tk.Button(fen, text="Quit", command=fen.destroy).grid(row = i+4, column = 3)
 
 def callback_list(*args):
@@ -69,7 +96,7 @@ def liste_compo_deroulante(compo):
     opt = tk.OptionMenu(fen, var_listbox1, *compo)
     var_listbox1.trace("w", callback_list)
     opt.grid(row = 3, column = 0)
-    
+
 # la partie principale
 
 fen = tk.Tk()
